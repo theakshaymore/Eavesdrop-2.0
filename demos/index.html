@@ -1,19 +1,40 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
   <head>
     <script type="text/javascript">
-      if (location.protocol === 'http:' && document.domain === 'react-live-stream.herokuapp.com') {
-        location.href = location.href.replace('http:', 'https:');
+      if (
+        location.protocol === "http:" &&
+        document.domain === "react-live-stream.herokuapp.com"
+      ) {
+        location.href = location.href.replace("http:", "https:");
       }
     </script>
-    <meta charset="utf-8">
-    <title>Live Streaming</title>
-    <link rel="canonical" href="/demos/">
-    <meta name="google-site-verification" content="zhJ273gZGLJ_Cbl-muzPYYTR6jD7sCCgufDIRS5h4SE" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <link rel="shortcut icon" href="/demos/logo.png">
-    <link rel="stylesheet" href="/demos/stylesheet.css">
+    <meta charset="utf-8" />
+    <title>Eavesdrop</title>
+    <link rel="canonical" href="/demos/" />
+    <meta
+      name="google-site-verification"
+      content="zhJ273gZGLJ_Cbl-muzPYYTR6jD7sCCgufDIRS5h4SE"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
+    />
+    <link rel="shortcut icon" href="/demos/logo.png" />
+    <!-- BOOTSTRAP LINK -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <!-- MAIN CSS LINK -->
+    <link rel="stylesheet" href="/demos/stylesheet.css" />
     <script src="/demos/menu.js"></script>
     <style>
       .search-container {
@@ -43,7 +64,8 @@
         overflow: auto;
         word-break: normal;
         color: rgb(51, 51, 51);
-        font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif;
+        font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans,
+          sans-serif;
         font-size: 16px;
         line-height: 25.6000003814697px;
         margin-top: 10px;
@@ -80,183 +102,148 @@
         text-align: left !important;
       }
 
-      .table-style-container {}
+      .table-style-container {
+      }
     </style>
   </head>
 
   <body>
+    <!-- NAVBAR -->
     <header>
-      <!-- <a class="logo" href="/"><br /> -->
-      <!-- <h2>Live Streaming</h2> -->
-      <!-- <img src="/demos/logo.png" alt="RTCMultiConnection"> -->
-      <!-- </a> -->
-      <!-- <a href="/" class="menu-explorer">Menu<img src="/demos/menu-icon.png" alt="Menu"></a> -->
-      <nav>
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <!-- <li>
-          <a href="/demos/">Demos</a>
-        </li> -->
-        <!-- <li>
-          <a href="https://www.rtcmulticonnection.org/docs/getting-started/">Getting Started</a>
-        </li>
-        <li>
-          <a href="https://www.rtcmulticonnection.org/FAQ/">FAQ</a>
-        </li>
-        <li>
-          <a href="https://www.youtube.com/playlist?list=PLPRQUXAnRydKdyun-vjKPMrySoow2N4tl">YouTube</a>
-        </li>
-        <li>
-          <a href="https://github.com/muaz-khan/RTCMultiConnection/wiki">Wiki</a>
-        </li>
-        <li>
-          <a href="https://github.com/muaz-khan/RTCMultiConnection">Github</a>
-        </li> -->
+      <nav
+        class="navbar navbar-expand-lg navbar-light text-dark py-3 fixed-top"
+      >
+        <div class="container">
+          <a href="#" class="navbar-brand text-danger">Eavesdrop</a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navmenu"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a href="/" class="nav-link text-dark me-2">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="/" class="nav-link text-dark me-2">About</a>
+              </li>
+              <li class="nav-item">
+                <a href="/" class="nav-link text-dark me-2">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  href="./authentication.html"
+                  class="nav-link btn btn-danger text-white me-2"
+                  >Join/Register</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
       </nav>
     </header>
+    <!-- INTRO -->
+    <div class="container mt-5 pt-5">
+      <div class="row mt-5">
+        <div class="col-lg-7 col-md-7 col-sm-12">
+          <img src="./home-img.png" alt="Eavesdrop" class="img-fluid" />
+        </div>
+        <div class="col-lg-5 col-md-5 col-sm-12 p-5">
+          <h1 class="h4 text-left">Welcome to</h1>
+          <h1 class="h1 text-left text-danger display-3">Eavesdrop</h1>
+          <a
+            href="/demos/dashboard/"
+            class="btn btn-outline-dark rounded-0 mt-2 text-start"
+          >
+            Explore channels 🚀
+          </a>
+        </div>
+      </div>
 
-    <h1>
-      Live Streaming Demos
+      <!-- <section id="featured" class="table-style-container">
+        <table class="table-style">
+          <thead>
+            <tr>
+              <th class="td-style">Demo Title</th>
+              <th class="td-style">Demo</th>
+              <th class="td-style">Source</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="tr-style" style="background: #e4f6ff">
+              <td class="td-style">
+                Dashboard + Video Conferencing + Chat + File Sharing
+              </td>
+              <td class="td-style">
+                <a href="/demos/dashboard/" class="td-style2">Demo</a>
+              </td>
+              <td class="td-style">
+                <a
+                  href="https://github.com/venkatesh-m-xelp/react-live-stream/tree/master/demos/dashboard/"
+                  class="td-style2"
+                  >Source</a
+                >
+              </td>
+            </tr>
 
-      <!-- <p class="no-mobile">
-        RTCMultiConnection is a WebRTC JavaScript library for peer-to-peer applications (screen sharing, audio/video
-        conferencing, file sharing, media streaming etc.)
-      </p> -->
-    </h1>
+            <tr class="tr-style" style="background: #e4f6ff">
+              <td class="td-style">Video Conferencing (MANY_TO_MANY)</td>
+              <td class="td-style">
+                <a href="/demos/video-conferencing.html" class="td-style2"
+                  >Demo</a
+                >
+              </td>
+              <td class="td-style">
+                <a
+                  href="https://github.com/venkatesh-m-xelp/react-live-stream/tree/master/demos/video-conferencing.html"
+                  class="td-style2"
+                  >Source</a
+                >
+              </td>
+            </tr>
 
-    <!-- <section id="demos" style="text-align:center;" class="no-mobile">
-      <h2>
-        <a href="https://www.npmjs.com/package/rtcmulticonnection"><img
-            src="https://img.shields.io/npm/v/rtcmulticonnection.svg" /></a>
-        <a class="github-button" href="https://github.com/muaz-khan/RTCMultiConnection" data-show-count="true"
-          aria-label="Star muaz-khan/RTCMultiConnection on GitHub">Star</a>
-        <a class="github-button" href="https://github.com/muaz-khan/RTCMultiConnection/issues" data-show-count="true"
-          aria-label="Issue muaz-khan/RTCMultiConnection on GitHub">Issue</a>
-        <a class="github-button" href="https://github.com/muaz-khan/RTCMultiConnection/fork" data-show-count="true"
-          aria-label="Fork muaz-khan/RTCMultiConnection on GitHub">Fork</a>
-        <a class="github-button" href="https://github.com/muaz-khan" data-show-count="true"
-          aria-label="Follow @muaz-khan on GitHub">Follow @muaz-khan</a>
-        <a href="https://travis-ci.org/muaz-khan/RTCMultiConnection"><img
-            src="https://travis-ci.org/muaz-khan/RTCMultiConnection.png?branch=master" /></a>
-      </h2>
-    </section> -->
-    <section id="featured" class="table-style-container">
-      <h2>
-        <!-- <a href="#featured">Featured Demos</a> -->
+            <tr class="tr-style" style="background: #e4f6ff">
+              <td class="td-style">Audio Conferencing (MANY_TO_MANY)</td>
+              <td class="td-style">
+                <a href="/demos/audio-conferencing.html" class="td-style2"
+                  >Demo</a
+                >
+              </td>
+              <td class="td-style">
+                <a
+                  href="https://github.com/venkatesh-m-xelp/react-live-stream/tree/master/demos/audio-conferencing.html"
+                  class="td-style2"
+                  >Source</a
+                >
+              </td>
+            </tr>
 
-        <!-- <a class="github-button" href="https://github.com/muaz-khan/RTCMultiConnection/archive/master.zip"
-          aria-label="Download muaz-khan/RTCMultiConnection on GitHub">RTCMultiConnection.zip</a> -->
-      </h2>
-      <table class="table-style">
-        <thead>
-          <tr>
-            <th class="td-style">RTCMultiConnection Demo Title</th>
-            <th class="td-style">Demo</th>
-            <th class="td-style">Source</th>
-          </tr>
-        </thead>
-        <tbody>
+            
+          </tbody>
+        </table>
+      </section> -->
+    </div>
+    <br /><br /><br /><br /><br /><br /><br /><br />
+    <!-- FOOTER -->
+    <footer class="p-5 bg-dark text-white text-center position-relative">
+      <div class="container">
+        <p class="lead">If you got any questions, feel free to reach out</p>
 
-          <tr class="tr-style" style="background: #e4f6ff;">
-            <td class="td-style">Dashboard + Video Conferencing + Chat + File Sharing</td>
-            <td class="td-style"><a href="/demos/dashboard/" class="td-style2">Demo</a></td>
-            <td class="td-style"><a
-                href="https://github.com/venkatesh-m-xelp/react-live-stream/tree/master/demos/dashboard/"
-                class="td-style2">Source</a></td>
-          </tr>
-
-          <tr class="tr-style" style="background: #e4f6ff;">
-            <td class="td-style">Video Conferencing (MANY_TO_MANY)</td>
-            <td class="td-style"><a href="/demos/video-conferencing.html" class="td-style2">Demo</a></td>
-            <td class="td-style"><a
-                href="https://github.com/venkatesh-m-xelp/react-live-stream/tree/master/demos/video-conferencing.html"
-                class="td-style2">Source</a></td>
-          </tr>
-
-          <tr class="tr-style" style="background: #e4f6ff;">
-            <td class="td-style">Audio Conferencing (MANY_TO_MANY)</td>
-            <td class="td-style"><a href="/demos/audio-conferencing.html" class="td-style2">Demo</a></td>
-            <td class="td-style"><a
-                href="https://github.com/venkatesh-m-xelp/react-live-stream/tree/master/demos/audio-conferencing.html"
-                class="td-style2">Source</a></td>
-          </tr>
-
-
-          <!-- <tr class="tr-style">
-            <td class="td-style">Video Broadcasting</td>
-            <td class="td-style"><a href="/demos/Video-Broadcasting.html" class="td-style2">Demo</a></td>
-            <td class="td-style"><a
-                href="https://github.com/venkatesh-m-xelp/react-live-stream/tree/master/demos/video-broadcasting.html"
-                class="td-style2">Source</a></td>
-          </tr> -->
-
-
-          <tr class="tr-style" style="background: #e4f6ff;">
-            <td class="td-style">Live Streaming</td>
-            <td class="td-style"><a href="/demos/Scalable-Broadcast.html" class="td-style2">Demo</a></td>
-            <td class="td-style"><a
-                href="https://github.com/venkatesh-m-xelp/react-live-stream/tree/master/demos/Scalable-Broadcast.html"
-                class="td-style2">Source</a></td>
-          </tr>
-
-          <tr class="tr-style">
-            <td class="td-style">Screen Sharing</td>
-            <td class="td-style"><a href="/demos/screen-sharing.html" class="td-style2">Demo</a></td>
-            <td class="td-style"><a
-                href="https://github.com/venkatesh-m-xelp/react-live-stream/tree/master/demos/screen-sharing.html"
-                class="td-style2">Source</a></td>
-          </tr>
-
-
-          <!-- <tr class="tr-style">
-            <td class="td-style">File Sharing</td>
-            <td class="td-style"><a href="/demos/file-sharing.html" class="td-style2">Demo</a></td>
-            <td class="td-style"><a
-                href="https://github.com/venkatesh-m-xelp/react-live-stream/blob/master/demos/file-sharing.html"
-                class="td-style2">Source</a></td>
-          </tr> -->
-        </tbody>
-      </table>
-    </section>
-    <!-- <section id="scalable-broadcast" class="table-style-container">
-      <h2>
-        <a href="#scalable-broadcast">Scalable Broadcast Demos</a>
-      </h2>
-      <table class="table-style">
-        <thead>
-          <tr>
-            <th class="td-style">RTCMultiConnection Demo Title</th>
-            <th class="td-style">Demo</th>
-            <th class="td-style">Source</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="tr-style" style="background: #e4f6ff;">
-            <td class="td-style">Scalable Audio/Video Broadcast</td>
-            <td class="td-style"><a href="/demos/Scalable-Broadcast.html" class="td-style2">Demo</a></td>
-            <td class="td-style"><a
-                href="https://github.com/muaz-khan/RTCMultiConnection/tree/master/demos/Scalable-Broadcast.html"
-                class="td-style2">Source</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </section> -->
-    <!-- <section class="no-mobile">
-      <h2>
-        How to install RTCMultiConnection?
-      </h2>
-      <p>
-        <a href="https://www.youtube.com/watch?v=EtsiYEW_T8Y">https://www.youtube.com/watch?v=EtsiYEW_T8Y</a>
-      </p>
-    </section> -->
-
-    <footer>
-      <small id="send-message"></small>
+        <button class="btn btn-warning">Contact Us</button>
+      </div>
     </footer>
 
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <script async defer src="https://www.webrtc-experiment.com/common.js"></script>
+    <script
+      async
+      defer
+      src="https://www.webrtc-experiment.com/common.js"
+    ></script>
   </body>
-
 </html>
