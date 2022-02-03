@@ -13,6 +13,24 @@
     />
 
     <link rel="shortcut icon" href="/demos/logo.png" />
+    <!-- FAVICON -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../favicon_io/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../../favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../../favicon_io/favicon-16x16.png"
+    />
 
     <link href="/demos/css/bootstrap.min.css" rel="stylesheet" />
     <script src="/demos/js/jquery-3.3.1.slim.min.js"></script>
@@ -364,8 +382,8 @@
       </nav>
     </header>
 
+    <!-- TOP OPTIONS -->
     <div class="container mt-5 pt-5">
-      <!-- TOP OPTIONS -->
       <div class="row">
         <div class="col-lg-6 col-md-5 col-sm-12 text-start mt-5">
           <h1 class="h1 fw-bold">LIVE ROOMS</h1>
@@ -394,6 +412,7 @@
         </div>
       </div>
     </div>
+
     <!-- MODEL(create) -->
     <div
       class="modal fade"
@@ -642,7 +661,7 @@
     <!-- MAIN SECTION -->
     <section class="container mt-5 pt-5">
       <div
-        class="card p-3 mb-2 ms-5"
+        class="card p-3 mb-2 ms-5 my-card"
         style="width: 300px"
         id="rooms-list"
       ></div>
@@ -658,6 +677,15 @@
     </footer>
 
     <script>
+      // Navbar
+      const navbar = document.querySelector(".navbar");
+      window.onscroll = () => {
+        if (window.scrollY > 140) {
+          navbar.classList.add("nav-active");
+        } else {
+          navbar.classList.remove("nav-active");
+        }
+      };
       // this object is used to get uniquie rooms based on this demo
       // i.e. only those rooms that are created on this page
       var publicRoomIdentifier = "dashboard";

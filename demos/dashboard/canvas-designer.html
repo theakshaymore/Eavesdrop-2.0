@@ -1,6 +1,4 @@
-﻿<!-- Demo version: 2018.12.11 -->
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
@@ -8,13 +6,31 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>Eavesdrop</title>
+    <title>Live Room</title>
     <meta
       name="description"
       content="WebRTC Dashboard including support for canvas drawing, canvas data syncing, video conferencing, screen sharing and video conferencing. Including chat and file sharing."
     />
 
     <link rel="shortcut icon" href="/demos/logo.png" />
+    <!-- FAVICON -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../favicon_io/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../../favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../../favicon_io/favicon-16x16.png"
+    />
     <link
       rel="stylesheet"
       type="text/css"
@@ -152,46 +168,44 @@
       }
     </style>
     <!-- NAVBAR -->
-    <header>
-      <nav
-        class="navbar navbar-expand-lg navbar-light text-dark py-3 fixed-top"
-      >
-        <div class="container">
-          <a href="#" class="navbar-brand text-danger">Eavesdrop</a>
 
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navmenu"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+    <!-- <nav class="navbar navbar-expand-lg navbar-light text-dark py-3 fixed-top">
+      <div class="container">
+        <a href="#" class="navbar-brand text-danger">Eavesdrop</a>
 
-          <div class="collapse navbar-collapse" id="navmenu">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a href="/" class="nav-link text-dark me-2">Home</a>
-              </li>
-              <li class="nav-item">
-                <a href="/" class="nav-link text-dark me-2">About</a>
-              </li>
-              <li class="nav-item">
-                <a href="/" class="nav-link text-dark me-2">Contact</a>
-              </li>
-              <li class="nav-item">
-                <a href="/" class="nav-link btn btn-danger text-white me-2"
-                  >Join/Register</a
-                >
-              </li>
-            </ul>
-          </div>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navmenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navmenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a href="/" class="nav-link text-dark me-2">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/" class="nav-link text-dark me-2">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/" class="nav-link text-dark me-2">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a href="/" class="nav-link btn btn-danger text-white me-2"
+                >Join/Register</a
+              >
+            </li>
+          </ul>
         </div>
-      </nav>
-    </header>
+      </div>
+    </nav> -->
+
     <!-- MAIN -->
-    <div class="container mx-5 my-5">
-      <!-- <div
+    <!-- <div class="container-fluid mx-5 my-5">
+      <div
         id="widget-container"
         style="
           position: fixed;
@@ -203,7 +217,7 @@
           border-top: 0;
           border-bottom: 0;
         "
-      ></div> -->
+      ></div>
       <video id="screen-viewer" controls playsinline autoplay></video>
 
       <div style="width: 20%; height: 100%; position: absolute; left: 0">
@@ -253,8 +267,74 @@
 
         <canvas id="temp-stream-canvas" style="display: none"></canvas>
       </div>
-    </div>
+    </div> -->
 
+    <!-- OG MAIN -->
+    <article class="mt-5">
+      <div
+        id="widget-container"
+        style="
+          position: fixed;
+          bottom: 0;
+          right: 0;
+          left: 20%;
+          height: 100%;
+          border: 1px solid black;
+          border-top: 0;
+          border-bottom: 0;
+        "
+      ></div>
+      <video id="screen-viewer" controls playsinline autoplay></video>
+
+      <div style="width: 20%; height: 90%; position: absolute; left: 0">
+        <video id="main-video" controls playsinline autoplay></video>
+        <div id="other-videos"></div>
+        <hr />
+        <div style="padding: 5px 10px">
+          <div id="onUserStatusChanged"></div>
+        </div>
+
+        <div
+          style="
+            margin-top: 20px;
+            position: absolute;
+            bottom: 0;
+            background: white;
+            padding-bottom: 20px;
+            width: 94%;
+          "
+        >
+          <div id="conversation-panel"></div>
+          <div
+            id="key-press"
+            style="text-align: right; display: none; font-size: 9px"
+          >
+            <span style="vertical-align: middle"></span>
+            <img
+              src="https://www.webrtc-experiment.com/images/key-press.gif"
+              style="height: 12px; vertical-align: middle"
+            />
+          </div>
+          <textarea id="txt-chat-message" class=""></textarea>
+          <button class="btn btn-danger col-12 rounded" id="btn-chat-message">
+            Send
+          </button>
+          <img
+            id="btn-attach-file"
+            src="https://www.webrtc-experiment.com/images/attach-file.png"
+            title="Attach a File"
+          />
+          <img
+            id="btn-share-screen"
+            src="https://www.webrtc-experiment.com/images/share-screen.png"
+            title="Share Your Screen"
+          />
+        </div>
+
+        <canvas id="temp-stream-canvas" style="display: none"></canvas>
+      </div>
+    </article>
+    <!-- JS -->
     <script>
       (function () {
         var params = {},
