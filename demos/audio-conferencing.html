@@ -1,93 +1,172 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
   <head>
-    <meta charset="utf-8">
-    <title>Audio Conferencing using RTCMultiConnection</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <link rel="shortcut icon" href="/demos/logo.png">
-    <link rel="stylesheet" href="/demos/stylesheet.css">
+    <meta charset="utf-8" />
+    <title>AudioRoom</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
+    />
+    <link rel="shortcut icon" href="/demos/logo.png" />
+    <!-- FAVICON -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../favicon_io/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../favicon_io/favicon-16x16.png"
+    />
+    <!-- BOOTSTRAP LINK -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/demos/stylesheet.css" />
     <script src="/demos/menu.js"></script>
   </head>
 
   <body>
+    <!-- NAVBAR -->
     <header>
-      <!-- <a class="logo" href="/"><img src="/demos/logo.png" alt="RTCMultiConnection"></a>
-    <a href="/" class="menu-explorer">Menu<img src="/demos/menu-icon.png" alt="Menu"></a> -->
-      <nav>
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <!-- <li>
-        <a href="/demos/">Demos</a>
-      </li>
-      <li>
-        <a href="https://www.rtcmulticonnection.org/docs/getting-started/">Getting Started</a>
-      </li>
-      <li>
-        <a href="https://www.rtcmulticonnection.org/FAQ/">FAQ</a>
-      </li>
-      <li>
-        <a href="https://www.youtube.com/playlist?list=PLPRQUXAnRydKdyun-vjKPMrySoow2N4tl">YouTube</a>
-      </li>
-      <li>
-        <a href="https://github.com/muaz-khan/RTCMultiConnection/wiki">Wiki</a>
-      </li>
-      <li>
-        <a href="https://github.com/muaz-khan/RTCMultiConnection">Github</a>
-      </li> -->
+      <nav
+        class="navbar navbar-expand-lg navbar-light text-dark py-3 fixed-top"
+      >
+        <div class="container">
+          <a href="#" class="navbar-brand text-danger">Eavesdrop</a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navmenu"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a href="/" class="nav-link text-dark me-2">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="./dashboard/index.html" class="nav-link text-dark me-2"
+                  >Dashboard</a
+                >
+              </li>
+              <!-- <li class="nav-item">
+                <a href="/" class="nav-link text-dark me-2">Contact</a>
+              </li> -->
+              <li class="nav-item">
+                <a href="/" class="nav-link btn btn-danger text-white me-2"
+                  >Join/Register</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
       </nav>
     </header>
 
-    <h1>
-      Audio Conferencing using RTCMultiConnection
-      <p class="no-mobile">
-        Multi-user (many-to-many) audio-calling using mesh networking model.
-      </p>
-    </h1>
+    <div class="container mt-5 pt-5">
+      <h2 class="h1 text-danger text-center mt-5">AudioRoom</h2>
+      <section class="">
+        <input
+          class="form-control"
+          type="text"
+          id="room-id"
+          value="abcdef"
+          autocorrect="off"
+          autocapitalize="off"
+          size="20"
+          placeholder="Enter Room Name"
+        />
+        <button id="open-room" class="btn btn-danger mt-3 mx-3">
+          Create Room
+        </button>
+        <button id="join-room" class="btn btn-danger mt-3 mx-3">
+          Join Room
+        </button>
+        <button id="open-or-join-room" class="btn btn-danger mt-3 mx-3">
+          Auto Open Or Join Room
+        </button>
 
-    <section class="make-center">
-      <input type="text" id="room-id" value="abcdef" autocorrect=off autocapitalize=off size=20>
-      <button id="open-room">Open Room</button>
-      <button id="join-room">Join Room</button>
-      <button id="open-or-join-room">Auto Open Or Join Room</button>
+        <div id="room-urls" class="alert alert-warning mt-3"></div>
 
-      <div id="room-urls"
-        style="text-align: center;display: none;background: #F1EDED;margin: 15px -10px;border: 1px solid rgb(189, 189, 189);border-left: 0;border-right: 0;">
+        <div
+          id="audios-container"
+          class="container mt-5 p-5 d-flex flex-row justify-content-around"
+        ></div>
+      </section>
+    </div>
+    <br /><br /><br /><br /><br /><br /><br /><br />
+    <!-- FOOTER -->
+    <footer class="p-5 bg-dark text-white text-center position-relative">
+      <div class="container">
+        <p class="lead">If you got any questions, feel free to reach out</p>
+
+        <button class="btn btn-warning">Contact Us</button>
       </div>
-
-      <div id="audios-container"></div>
-    </section>
-
+    </footer>
+    <script>
+      // Navbar
+      const navbar = document.querySelector(".navbar");
+      window.onscroll = () => {
+        if (window.scrollY > 140) {
+          navbar.classList.add("nav-active");
+        } else {
+          navbar.classList.remove("nav-active");
+        }
+      };
+    </script>
     <script src="/dist/RTCMultiConnection.min.js"></script>
     <script src="/node_modules/webrtc-adapter/out/adapter.js"></script>
     <script src="/socket.io/socket.io.js"></script>
 
-    <link rel="stylesheet" href="/dev/getHTMLMediaElement.css">
+    <link rel="stylesheet" href="/dev/getHTMLMediaElement.css" />
     <script src="/dev/getHTMLMediaElement.js"></script>
     <script>
       // ......................................................
       // .......................UI Code........................
       // ......................................................
-      document.getElementById('open-room').onclick = function () {
+      document.getElementById("open-room").onclick = function () {
         disableInputButtons();
-        connection.open(document.getElementById('room-id').value, function () {
+        connection.open(document.getElementById("room-id").value, function () {
           showRoomURL(connection.sessionid);
         });
       };
 
-      document.getElementById('join-room').onclick = function () {
+      document.getElementById("join-room").onclick = function () {
         disableInputButtons();
-        connection.join(document.getElementById('room-id').value);
+        connection.join(document.getElementById("room-id").value);
       };
 
-      document.getElementById('open-or-join-room').onclick = function () {
+      document.getElementById("open-or-join-room").onclick = function () {
         disableInputButtons();
-        connection.openOrJoin(document.getElementById('room-id').value, function (isRoomExist, roomid) {
-          if (!isRoomExist) {
-            showRoomURL(roomid);
+        connection.openOrJoin(
+          document.getElementById("room-id").value,
+          function (isRoomExist, roomid) {
+            if (!isRoomExist) {
+              showRoomURL(roomid);
+            }
           }
-        });
+        );
       };
 
       // ......................................................
@@ -97,47 +176,49 @@
       var connection = new RTCMultiConnection();
 
       // by default, socket.io server is assumed to be deployed on your own URL
-      connection.socketURL = '/';
+      connection.socketURL = "/";
 
       // comment-out below line if you do not have your own socket.io server
       // connection.socketURL = 'https://rtcmulticonnection.herokuapp.com:443/';
 
-      connection.socketMessageEvent = 'audio-conference-demo';
+      connection.socketMessageEvent = "audio-conference-demo";
 
       connection.session = {
         audio: true,
-        video: false
+        video: false,
       };
 
       connection.mediaConstraints = {
         audio: true,
-        video: false
+        video: false,
       };
 
       connection.sdpConstraints.mandatory = {
         OfferToReceiveAudio: true,
-        OfferToReceiveVideo: false
+        OfferToReceiveVideo: false,
       };
 
       // https://www.rtcmulticonnection.org/docs/iceServers/
       // use your own TURN-server here!
-      connection.iceServers = [{
-        'urls': [
-          'stun:stun.l.google.com:19302',
-          'stun:stun1.l.google.com:19302',
-          'stun:stun2.l.google.com:19302',
-          'stun:stun.l.google.com:19302?transport=udp',
-        ]
-      }];
+      connection.iceServers = [
+        {
+          urls: [
+            "stun:stun.l.google.com:19302",
+            "stun:stun1.l.google.com:19302",
+            "stun:stun2.l.google.com:19302",
+            "stun:stun.l.google.com:19302?transport=udp",
+          ],
+        },
+      ];
 
-      connection.audiosContainer = document.getElementById('audios-container');
+      connection.audiosContainer = document.getElementById("audios-container");
       connection.onstream = function (event) {
         var width = parseInt(connection.audiosContainer.clientWidth / 2) - 20;
         var mediaElement = getHTMLMediaElement(event.mediaElement, {
           title: event.userid,
-          buttons: ['full-screen'],
+          buttons: ["full-screen"],
           width: width,
-          showOnMouseEnter: false
+          showOnMouseEnter: false,
         });
 
         connection.audiosContainer.appendChild(mediaElement);
@@ -157,10 +238,10 @@
       };
 
       function disableInputButtons() {
-        document.getElementById('open-or-join-room').disabled = true;
-        document.getElementById('open-room').disabled = true;
-        document.getElementById('join-room').disabled = true;
-        document.getElementById('room-id').disabled = true;
+        document.getElementById("open-or-join-room").disabled = true;
+        document.getElementById("open-room").disabled = true;
+        document.getElementById("join-room").disabled = true;
+        document.getElementById("room-id").disabled = true;
       }
 
       // ......................................................
@@ -168,19 +249,29 @@
       // ......................................................
 
       function showRoomURL(roomid) {
-        var roomHashURL = '#' + roomid;
-        var roomQueryStringURL = '?roomid=' + roomid;
+        var roomHashURL = "#" + roomid;
+        var roomQueryStringURL = "?roomid=" + roomid;
 
-        var html = '<h2>Unique URL for your room:</h2><br>';
+        var html = "";
 
-        html += 'Hash URL: <a href="' + roomHashURL + '" target="_blank">' + roomHashURL + '</a>';
-        html += '<br>';
-        html += 'QueryString URL: <a href="' + roomQueryStringURL + '" target="_blank">' + roomQueryStringURL + '</a>';
+        html +=
+          'Room URL: <a href="' +
+          roomHashURL +
+          '" target="_blank">' +
+          roomHashURL +
+          "</a>";
+        html += "<br>";
+        // html +=
+        //   'QueryString URL: <a href="' +
+        //   roomQueryStringURL +
+        //   '" target="_blank">' +
+        //   roomQueryStringURL +
+        //   "</a>";
 
-        var roomURLsDiv = document.getElementById('room-urls');
+        var roomURLsDiv = document.getElementById("room-urls");
         roomURLsDiv.innerHTML = html;
 
-        roomURLsDiv.style.display = 'block';
+        roomURLsDiv.style.display = "block";
       }
 
       (function () {
@@ -188,28 +279,29 @@
           r = /([^&=]+)=?([^&]*)/g;
 
         function d(s) {
-          return decodeURIComponent(s.replace(/\+/g, ' '));
+          return decodeURIComponent(s.replace(/\+/g, " "));
         }
-        var match, search = window.location.search;
-        while (match = r.exec(search.substring(1)))
+        var match,
+          search = window.location.search;
+        while ((match = r.exec(search.substring(1))))
           params[d(match[1])] = d(match[2]);
         window.params = params;
       })();
 
-      var roomid = '';
+      var roomid = "";
       if (localStorage.getItem(connection.socketMessageEvent)) {
         roomid = localStorage.getItem(connection.socketMessageEvent);
       } else {
         roomid = connection.token();
       }
-      document.getElementById('room-id').value = roomid;
-      document.getElementById('room-id').onkeyup = function () {
+      document.getElementById("room-id").value = roomid;
+      document.getElementById("room-id").onkeyup = function () {
         localStorage.setItem(connection.socketMessageEvent, this.value);
       };
 
-      var hashString = location.hash.replace('#', '');
-      if (hashString.length && hashString.indexOf('comment-') == 0) {
-        hashString = '';
+      var hashString = location.hash.replace("#", "");
+      if (hashString.length && hashString.indexOf("comment-") == 0) {
+        hashString = "";
       }
 
       var roomid = params.roomid;
@@ -218,7 +310,7 @@
       }
 
       if (roomid && roomid.length) {
-        document.getElementById('room-id').value = roomid;
+        document.getElementById("room-id").value = roomid;
         localStorage.setItem(connection.socketMessageEvent, roomid);
 
         // auto-join-room
@@ -243,5 +335,4 @@
 
     <script src="https://www.webrtc-experiment.com/common.js"></script>
   </body>
-
 </html>
