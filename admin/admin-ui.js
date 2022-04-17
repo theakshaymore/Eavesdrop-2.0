@@ -262,18 +262,6 @@ function updateListOfRooms(rooms) {
       '">' +
       room.owner +
       "</span></td>";
-    html +=
-      '<td><span class="max-width" title="' +
-      room.identifier +
-      '">' +
-      (room.identifier || "None") +
-      "</span></td>";
-    html +=
-      '<td><span class="max-width" title="' +
-      room.socketMessageEvent +
-      '">' +
-      room.socketMessageEvent +
-      "</span></td>";
 
     html += "<td>";
     Object.keys(room.session || {}).forEach(function (key) {
@@ -281,12 +269,12 @@ function updateListOfRooms(rooms) {
     });
     html += "</td>";
 
-    html +=
-      '<td><span class="max-width" title="' +
-      JSON.stringify(room.extra || {}).replace(/"/g, "`") +
-      '">' +
-      JSON.stringify(room.extra || {}) +
-      "</span></td>";
+    // html +=
+    //   '<td><span class="max-width" title="' +
+    //   JSON.stringify(room.extra || {}).replace(/"/g, "`") +
+    //   '">' +
+    //   JSON.stringify(room.extra || {}) +
+    //   "</span></td>";
 
     html += "<td>";
     console.log(JSON.stringify(room));
@@ -303,7 +291,7 @@ function updateListOfRooms(rooms) {
     html += "</td>";
 
     html +=
-      '<td><button class="btn delete-room" data-roomid="' +
+      '<td><button class="btn btn-outline-danger delete-room" data-roomid="' +
       roomid +
       '">Delete</button></td>';
     $(tr).html(html);

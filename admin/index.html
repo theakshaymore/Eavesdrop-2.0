@@ -6,6 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+
     <title>Admin</title>
 
     <link rel="shortcut icon" href="/demos/logo.png" />
@@ -347,6 +348,7 @@
         vertical-align: middle;
       }
     </style>
+    <link rel="stylesheet" href="../demos/stylesheet.css" />
   </head>
   <body>
     <div class="new-updates-notifier">
@@ -357,13 +359,12 @@
       >
     </div>
 
-    <header style="margin-bottom: 20px">
-      <!-- <img class="logo" src="/demos/logo.png" alt="RTCMultiConnection" /> -->
-      <span class="logo-text">Admin</span>
+    <header class="container">
+      <span class="logo-text text-danger">ADMIN</span>
 
       <div style="float: right; margin-top: 15px">
         <button
-          class="btn btn-primary"
+          class="btn btn-danger"
           data-toggle="modal"
           data-target="#exampleModal"
         >
@@ -371,24 +372,23 @@
         </button>
 
         <span class="top-span"
-          >Signaling-Server ( users: <span id="active-users">0</span>, rooms:
-          <span id="active-rooms">0</span
-          ><!--, Sockets: <span id="all-sockts">0</span>  -->
+          >INFO: ( users: <span id="active-users">0</span>, rooms:
+          <span id="active-rooms">0</span>
           )</span
         >
-        <span class="top-span"
+        <!-- <span class="top-span"
           >Scalable-Broadcast ( users:
           <span id="scalable-users">0</span> )</span
-        >
+        > -->
 
-        <span
+        <!-- <span
           id="view-logs"
           class="clickable tooltip-test top-span"
           title="View All Nodejs Coding Error Logs"
           data-toggle="modal"
           data-target=".bd-example-modal-lg"
           >Error Logs</span
-        >
+        > -->
       </div>
     </header>
 
@@ -459,10 +459,10 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn" data-dismiss="modal">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
               Close
             </button>
-            <button type="button" class="btn btn-primary" id="view-userinfo">
+            <button type="button" class="btn btn-danger" id="view-userinfo">
               Search
             </button>
           </div>
@@ -509,7 +509,7 @@
 
           <div class="modal-footer">
             <p id="alert-special"></p>
-            <button class="btn btn-primary btn-alert-close">Close</button>
+            <button class="btn btn-danger btn-alert-close">Close</button>
           </div>
         </div>
       </div>
@@ -539,7 +539,7 @@
             <button class="btn btn-confirm-close" id="btn-confirm-close">
               Cancel
             </button>
-            <button class="btn btn-primary" id="btn-confirm-action">
+            <button class="btn btn-danger" id="btn-confirm-action">
               Confirm
             </button>
           </div>
@@ -600,14 +600,14 @@
           <div class="modal-footer">
             <button
               type="button"
-              class="btn close-admin-credentials-box"
+              class="btn btn-outline-danger close-admin-credentials-box"
               data-dismiss="modal"
             >
               Close
             </button>
             <button
               type="button"
-              class="btn btn-primary"
+              class="btn btn-danger"
               id="btn-validate-admin"
             >
               Validate
@@ -617,17 +617,17 @@
       </div>
     </div>
 
-    <section style="min-height: 400px">
+    <section class="container-fluid mt-5" style="min-height: 400px">
       <table class="table">
         <thead>
-          <tr>
+          <tr class="bg-dark text-white">
             <th>#</th>
             <th>Room ID</th>
             <th>Owner ID</th>
-            <th>Identifier</th>
-            <th>socketMessageEvent</th>
+            <!-- <th>Identifier</th> -->
+            <!-- <th>socketMessageEvent</th> -->
             <th>Session</th>
-            <th>Extra</th>
+            <!-- <th>Extra</th> -->
             <th>Participants</th>
             <th>Delete</th>
           </tr>
@@ -664,7 +664,7 @@
       </table>
     </section>
 
-    <footer style="text-align: center">RTCMultiConnection | Admin Page</footer>
+    <footer style="text-align: center">eavesdrop🪱 | Admin Page</footer>
 
     <script src="/admin/admin-ui.js"></script>
   </body>
