@@ -38,3 +38,7 @@
 .my-card:hover {
   box-shadow: 5px -1px 12px -5px #000000;
 }
+
+.givespace {
+  margin-bottom: 30px !important;
+}

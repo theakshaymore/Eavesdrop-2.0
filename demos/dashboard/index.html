@@ -373,7 +373,7 @@
               </li> -->
               <li class="nav-item">
                 <a href="/" class="nav-link btn btn-danger text-white me-2"
-                  >Join/Register</a
+                  >Signin</a
                 >
               </li>
             </ul>
@@ -394,7 +394,7 @@
         <div class="col-lg-6 col-md-5 col-sm-12 text-lg-end text-start mt-5">
           <div>
             <button
-              class="btn btn-outline-secondary me-3"
+              class="btn btn-outline-warning me-3"
               data-toggle="modal"
               data-target="#startRoomModel"
             >
@@ -666,7 +666,7 @@
     <!-- MAIN SECTION -->
     <section class="container mt-5 pt-5">
       <div
-        class="card p-3 mb-2 ms-5 my-card"
+        class="card p-3 mb-2 my-card"
         style="width: 300px"
         id="rooms-list"
       ></div>
@@ -735,75 +735,27 @@
 
         if (!rooms.length) {
           $("#rooms-list").html(
-            '<span class="alert alert-primary">Currently no active room to join</span>'
+            '<span class="alert alert-warning">Currently no active room to join</span>'
           );
           return;
         }
 
         rooms.forEach(function (room, idx) {
-          var tr = document.createElement("tr");
+          var tr = document.createElement("div");
           var html = "";
-          // if (!room.isPasswordProtected) {
-          //   html += "<td>" + (idx + 1) + "</td>";
-          // } else {
-          //   html +=
-          //     "<td>" +
-          //     (idx + 1) +
-          //     ' <img src="https://www.webrtc-experiment.com/images/password-protected.png" style="height: 15px; vertical-align: middle;" title="Password Protected Room"></td>';
-          // }
-
           html +=
-            '<div class="d-flex justify-content-between">' +
-            '<div class="d-flex flex-row align-items-center">' +
             '<div class="icon"><i class="bi bi-person-circle h2 text-muted"></i></div>' +
-            '<div class="ms-2">' +
             '<h6 class="mb-0 text-muted">' +
             JSON.stringify(room.extra.userFullName).replace(/"/g, "") +
             "</h6>" +
-            "</div>" +
-            "</div>" +
-            '<p class="badge badge-warning text-dark"><span>LIVE</span></p>' +
-            "</div>";
+            '<p class="badge badge-warning text-dark"><span>LIVE</span></p>';
 
           html +=
-            '<h3 class="heading mt-4" title="' +
+            '<h3 class="heading mt-1" title="' +
             room.sessionid +
             '">' +
             room.sessionid +
             "</h3>";
-
-          html +=
-            '<p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta magnam obcaecati</p>';
-          // html +=
-          //   '<td><span class="max-width" title="' +
-          //   room.owner +
-          //   '">' +
-          //   room.owner +
-          //   "</span></td>";
-
-          // html += "<td>";
-          // Object.keys(room.session || {}).forEach(function (key) {
-          //   html += "<pre><b>" + key + ":</b> " + room.session[key] + "</pre>";
-          // });
-          // html += "</td>";
-
-          // html +=
-          //   '<td><span class="max-width" title="' +
-          //   JSON.stringify(room.extra || {}).replace(/"/g, "`") +
-          //   '">' +
-          //   JSON.stringify(room.extra || {}) +
-          //   "</span></td>";
-
-          // html += "<td>";
-          // room.participants.forEach(function (pid) {
-          //   html +=
-          //     '<span class="userinfo"><span class="max-width" title="' +
-          //     pid +
-          //     '">' +
-          //     pid +
-          //     "</span></span><br>";
-          // });
-          // html += "</td>";
 
           // check if room is full
           if (room.isRoomFull) {
@@ -812,7 +764,7 @@
               '<span style="border-bottom: 1px dotted red; color: red;">Room is full</span>';
           } else {
             html +=
-              '<div class="mt-5"><button class="btn btn-sm btn-danger col-12 p-2 rounded-5 join-room" data-roomid="' +
+              '<div class="mt-3"><button class="btn btn-sm btn-danger col-12 p-2 rounded-5 join-room" data-roomid="' +
               room.sessionid +
               '" data-password-protected="' +
               (room.isPasswordProtected === true ? "true" : "false") +
